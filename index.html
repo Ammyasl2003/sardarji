@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sardar Ji's Special Kadhi & Rajma Chawal - Mohali</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff6b35;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: colorChange 3s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff6b35; }
+            50% { color: #f7931e; }
+            100% { color: #ff6b35; }
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            color: #555;
+            font-style: italic;
+        }
+
+        .location {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .menu-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .menu-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s ease;
+        }
+
+        .menu-item:hover::before {
+            transform: scale(1);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .food-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .menu-item h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .menu-item p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .order-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .order-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+            }
+        }
+
+        .order-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.6);
+            animation: none;
+        }
+
+        .phone-icon {
+            display: inline-block;
+            margin-right: 10px;
+            animation: ring 1s ease-in-out infinite;
+        }
+
+        @keyframes ring {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(-15deg); }
+            20%, 40% { transform: rotate(15deg); }
+            50% { transform: rotate(0deg); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .floating-spice {
+            position: fixed;
+            font-size: 2em;
+            opacity: 0.3;
+            animation: float 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+ 
+
+        .gallery-grid {
+    column-count: 3;          /* 👈 3 columns desktop */
+    column-gap: 20px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .gallery-grid {
+        column-count: 2;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .gallery-grid {
+        column-count: 1;
+    }
+}
+
+.gallery-item {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #000;
+    break-inside: avoid;   /* 👈 VERY IMPORTANT */
+}
+
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: auto;          /* 👈 natural height */
+    display: block;
+    object-fit: cover;
+}
+
+
+
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+
+        .photo-caption {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+       
+
+        .specialty-badge {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-spice" style="top: 10%; left: 10%;">🌶️</div>
+    <div class="floating-spice" style="top: 70%; right: 15%; animation-delay: 2s;">🌿</div>
+    <div class="floating-spice" style="top: 40%; left: 80%; animation-delay: 4s;">🧄</div>
+
+    <div class="container">
+        <header>
+            <h1>🍛 Sardar Ji's Special Kitchen 🍛</h1>
+            <p class="tagline">Authentic Punjabi Flavors from the Heart</p>
+            <p class="location">📍 Mohali, Punjab</p>
+        </header>
+
+        <div class="menu-section">
+            <h2 style="text-align: center; font-size: 2.5em; color: #764ba2; margin-bottom: 20px;">Our Special Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="food-icon">🥘</div>
+                    <h3>Special Kadhi</h3>
+                    <p>Creamy yogurt curry with pakoras, served with love and traditional spices</p>
+                    <div class="specialty-badge">⭐ Sardar Ji's Special</div>
+                    <div class="price"></div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="food-icon">🍚</div>
+                    <h3>Rajma Chawal</h3>
+                    <p>Delicious red kidney beans curry with steaming basmati rice</p>
+                    <div class="specialty-badge">⭐ Customer Favorite</div>
+                    <div class="price"></div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="food-icon">🍽️</div>
+                    <h3>Combo Meal</h3>
+                    <p>Kadhi + Rajma Chawal - The ultimate satisfaction</p>
+                    <div class="specialty-badge">⭐ Best Value</div>
+                    <div class="price"></div>
+                </div>
+            </div>
+        </div>
+
+        
+       <div class="gallery-section" style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);">
+    <h2 style="text-align: center; font-size: 2.5em; color: #764ba2; margin-bottom: 20px;">
+        📸 Our Stall Gallery
+    </h2>
+    <p style="text-align: center; font-size: 1.2em; color: #666; margin-bottom: 30px;">
+        Visit us and experience the warmth of Sardar Ji's kitchen!
+    </p>
+
+    <!-- 👇 THIS WRAPPER WAS MISSING -->
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="img1.jpeg" alt="">
+        </div>
+
+        <div class="gallery-item">
+            <img src="img2.jpeg" alt="">
+        </div>
+
+        <div class="gallery-item">
+            <img src="img3.jpeg" alt="">
+        </div>
+
+        <div class="gallery-item">
+            <video src="vid1.mp4" autoplay muted loop></video>
+        </div>
+
+        <div class="gallery-item">
+            <video src="vid2.mp4" autoplay muted loop></video>
+        </div>
+
+        <div class="gallery-item">
+            <video src="vid3.mp4" autoplay muted loop></video>
+        </div>
+
+        <div class="gallery-item">
+            <video src="vid4.mp4" autoplay muted loop></video>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+        <div class="order-section">
+            <h2 style="font-size: 2.5em; color: #764ba2; margin-bottom: 20px;">Ready to Order?</h2>
+            <p style="font-size: 1.2em; color: #666; margin-bottom: 30px;">Call us now and enjoy fresh, homemade Punjabi food!</p>
+            <a href="tel:+918571898213" class="order-btn">
+                <span class="phone-icon">📞</span>
+                Call to Order Now
+            </a>
+            <p style="margin-top: 20px; color: #888;">Click the button to call directly</p>
+        </div>
+
+        <div class="map-section" style="background: white; border-radius: 20px; padding: 40px; margin-top: 30px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);">
+            <h2 style="text-align: center; font-size: 2.5em; color: #764ba2; margin-bottom: 20px;">📍 Find Us</h2>
+            <p style="text-align: center; font-size: 1.2em; color: #666; margin-bottom: 30px;">Visit our stall in Mohali</p>
+            <div style="width: 100%; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.9838866948103!2d76.71215997459939!3d30.71885338630497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fef9d4cc995cf%3A0x90b111e3fd87494!2sSardar%20Ji%20De%20Special%20Kadi%20rajma%20Chawal!5e0!3m2!1sen!2sin!4v1767956502110!5m2!1sen!2sin"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://maps.app.goo.gl/6KYFxyMwTkTw6e6j9" target="_blank" style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; text-decoration: none; border-radius: 30px; font-size: 1.1em; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(118, 75, 162, 0.4);">
+                    🗺️ Get Directions
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p style="font-size: 1.2em;">Made with ❤️ for food lovers</p>
+            <p style="margin-top: 10px;">Sardar Ji's Special Kitchen - Where every meal is a celebration!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add sparkle effect on menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, #ffd89b 0%, #ff6b35 100%)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.background = 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)';
+            });
+        });
+
+        // Smooth scroll animation
+        window.addEventListener('scroll', function() {
+            const menuSection = document.querySelector('.menu-section');
+            const orderSection = document.querySelector('.order-section');
+            
+            const menuPos = menuSection.getBoundingClientRect().top;
+            const orderPos = orderSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.3;
+
+            if(menuPos < screenPos) {
+                menuSection.style.opacity = '1';
+            }
+            if(orderPos < screenPos) {
+                orderSection.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>
